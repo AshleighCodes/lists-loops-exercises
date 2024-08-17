@@ -9,7 +9,8 @@ def add_chocolate(shopping_list: list):
     Returns:
         - the same list, with the string "chocolate" added to the end
     """
-    pass
+    shopping_list.append("chocolate")
+    return shopping_list
 
 def lou_bega(lyrics_list: list):
     """This function accepts a list of strings and adds the words 
@@ -36,7 +37,11 @@ def lou_bega(lyrics_list: list):
             "A little bit of Rita's all I need"
         ]
     """
-    pass
+
+    new_list = []
+    for lyric in lyrics_list:
+        new_list.append("A little bit of " + lyric)
+
 
 def assemble_guest_list():
     """This function repeatedly prompts the user for the name of a dinner guest.
@@ -49,7 +54,12 @@ def assemble_guest_list():
     Returns:
         - a list of strings supplied by the user
     """
-    pass
+
+    guest_list = []
+    while (guest := input("Enter the name of a dinner guest (or press Enter to finish): ")):
+        guest_list.append(guest)
+    return guest_list
+
 
 def is_prime(some_number: int): # A bit trickier!
     """This function tests to see if the input is a prime number.
@@ -65,8 +75,19 @@ def is_prime(some_number: int): # A bit trickier!
         - a boolean representing whether or not some_number is prime
     """
 
-    pass 
+    if some_number <= 1:
+        return False
+    if some_number in (2, 3):
+        return True
+    if some_number % 2 == 0 or some_number % 3 == 0:
+        return False
     
+    for i in range(5, int(some_number**0.5) + 1, 6):
+        if some_number % i == 0 or some_number % (i + 2) == 0:
+            return False
+    return True
+
+
     # Hint: 
     #   int(1.5) == 1.0
 
